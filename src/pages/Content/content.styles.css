@@ -1,0 +1,324 @@
+/* Explainx Floating Button */
+#explainx-floating-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#explainx-floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#explainx-floating-btn:active {
+    transform: scale(0.95);
+}
+
+#explainx-floating-btn svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+/* Dialog Container */
+#explainx-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    display: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+#explainx-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: explainx-fade-in 0.2s ease-out;
+}
+
+@keyframes explainx-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Dialog Box */
+#explainx-dialog {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 700px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.05);
+    animation: explainx-slide-up 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+@keyframes explainx-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Dialog Header */
+.explainx-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.explainx-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.explainx-icon-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.explainx-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.explainx-icon-btn:active {
+    transform: scale(0.95);
+}
+
+.explainx-icon-btn svg {
+    width: 18px;
+    height: 18px;
+    color: white;
+}
+
+/* Dialog Content */
+.explainx-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    background: #fafafa;
+}
+
+.explainx-summary-text {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1f2937;
+    min-height: 200px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.explainx-summary-text.loading {
+    color: #6b7280;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explainx-summary-text.error {
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dialog Footer */
+.explainx-footer {
+    display: flex;
+    gap: 10px;
+    padding: 20px 24px;
+    border-top: 1px solid #e5e7eb;
+    background: white;
+    justify-content: flex-end;
+}
+
+/* Buttons */
+.explainx-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.explainx-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.explainx-btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.explainx-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.explainx-btn-primary:active {
+    transform: translateY(0);
+}
+
+.explainx-btn-secondary {
+    background: white;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.explainx-btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    color: #374151;
+}
+
+.explainx-btn-secondary:active {
+    background: #f3f4f6;
+}
+
+/* Notification */
+.explainx-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #10b981;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 99999999;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.explainx-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scrollbar styling */
+.explainx-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.explainx-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.explainx-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.explainx-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #explainx-dialog {
+        max-width: 95%;
+        max-height: 90vh;
+    }
+
+    .explainx-header h2 {
+        font-size: 18px;
+    }
+
+    .explainx-content {
+        padding: 16px;
+    }
+
+    .explainx-footer {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+
+    .explainx-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    #explainx-floating-btn {
+        width: 48px;
+        height: 48px;
+        top: 16px;
+        right: 16px;
+    }
+
+    #explainx-floating-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
